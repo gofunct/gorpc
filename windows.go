@@ -1,19 +1,20 @@
-// +build !windows
+// +build windows
 
-package lile
+package rpcgen
 
 import (
+	"github.com/natefinch/npipe"
 	"net"
 )
 
 func formatPlatformTestSeverAddress(uniquePortion string)(string) {
-	return "/tmp/" + uniquePortion
+	return `\\.\pipe\` + uniquePortion
 }
 
 func getTestServerListener(address string)(net.Listener, error) {
-	return net.Listen("unix", address)
+	return npipe.Listen(address)
 }
 
 func dialTestServer(address string)(net.Conn, error) {
-	return  net.Dial("unix", address)
+	return  npipe.Dial(address)
 }

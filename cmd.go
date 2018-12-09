@@ -1,4 +1,4 @@
-package lile
+package rpcgen
 
 import "github.com/spf13/cobra"
 

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/lileio/lile/lile/cmd"
+	"github.com/gofunct/rpcgen/rpcgen/cmd"
 )
 
 func main() {

@@ -9,7 +9,7 @@ import (
 
 // RootCmd is the root command line
 var RootCmd = &cobra.Command{
-	Use: "lile",
+	Use: "rpcgen",
 }
 
 // Execute the commands

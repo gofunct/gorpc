@@ -1,4 +1,4 @@
-package lile
+package rpcgen
 
 // Registry is the interface to implement for external registry providers
 type Registry interface {

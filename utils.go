@@ -1,4 +1,4 @@
-package lile
+package rpcgen
 
 import (
 	"net"
