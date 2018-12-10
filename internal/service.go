@@ -1,6 +1,6 @@
 // package rpcgen provides helper methods to quickly create RPC based services
 // that have metrics, tracing and pub/sub support
-package main
+package gorpc
 
 import (
 	"context"

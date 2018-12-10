@@ -1,6 +1,6 @@
 // +build windows
 
-package main
+package gorpc
 
 import (
 	"github.com/natefinch/npipe"

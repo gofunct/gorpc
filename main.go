@@ -1,10 +1,10 @@
-package main
+package gorpc
 
 import (
 	"fmt"
 	"os"
 
-	"github.com/gofunct/gorpc/gorpc/cmd"
+	"github.com/gofunct/gorpc/cmd"
 )
 
 func main() {

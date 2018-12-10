@@ -1,4 +1,4 @@
-package main
+package gorpc
 
 // Registry is the interface to implement for external registry providers
 type Registry interface {
