@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/gofunct/rpcgen/rpcgen/cmd"
+	"github.com/gofunct/gorpc/gorpc/cmd"
 )
 
 func main() {
