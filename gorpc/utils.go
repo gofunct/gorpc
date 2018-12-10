@@ -1,4 +1,4 @@
-package rpcgen
+package main
 
 import (
 	"net"
