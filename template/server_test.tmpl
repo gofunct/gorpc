@@ -6,7 +6,7 @@ import (
 
 	"google.golang.org/grpc"
 
-	"github.com/lileio/lile"
+	"github.com/gofunct/gorpc/internal"
 	"{{ .RelDir }}"
 )
 
@@ -21,10 +21,10 @@ func TestMain(m *testing.M) {
 	gs := grpc.NewServer()
 	impl(gs)
 
-	addr, serve := lile.NewTestServer(gs)
+	addr, serve := internal.NewTestServer(gs)
 	go serve()
 
-	cli = {{ .SnakeCaseName }}.New{{ .CamelCaseName }}Client(lile.TestConn(addr))
+	cli = {{ .SnakeCaseName }}.New{{ .CamelCaseName }}Client(internal.TestConn(addr))
 
 	os.Exit(m.Run())
 }

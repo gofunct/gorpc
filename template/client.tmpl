@@ -4,7 +4,7 @@ import (
 	"sync"
 
 	"github.com/grpc-ecosystem/grpc-opentracing/go/otgrpc"
-	"github.com/lileio/lile"
+	"github.com/gofunct/gorpc/internal"
 	opentracing "github.com/opentracing/opentracing-go"
         grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	"google.golang.org/grpc"
@@ -23,7 +23,7 @@ func Get{{ .CamelCaseName }}Client() {{ .CamelCaseName }}Client {
 		return Client
 	}
 
-	serviceURL := lile.URLForService("{{ .DNSName }}")
+	serviceURL := internal.URLForService("{{ .DNSName }}")
 
 	// We don't need to error here, as this creates a pool and connections
 	// will happen later
@@ -32,7 +32,7 @@ func Get{{ .CamelCaseName }}Client() {{ .CamelCaseName }}Client {
 		grpc.WithInsecure(),
 		grpc.WithUnaryInterceptor(
                         grpc_middleware.ChainUnaryClient(
-                            lile.ContextClientInterceptor(),
+                            internal.ContextClientInterceptor(),
                             otgrpc.OpenTracingClientInterceptor(opentracing.GlobalTracer()),
                         ),
 		))

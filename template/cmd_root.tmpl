@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/lileio/lile"
+	"github.com/gofunct/gorpc/internal"
 )
 
 var cfgFile string
 
-var RootCmd = lile.BaseCommand("{{ .Name }}", "A gRPC based service")
+var RootCmd = internal.BaseCommand("{{ .Name }}", "A gRPC based service")
 
 func Execute() {
 	if err := RootCmd.Execute(); err != nil {

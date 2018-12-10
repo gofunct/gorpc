@@ -6,7 +6,7 @@ import (
 	"syscall"
 
 	"github.com/lileio/pubsub"
-	"github.com/lileio/lile"
+	"github.com/gofunct/gorpc/internal"
 	"github.com/spf13/cobra"
 	"{{ .RelDir }}/subscribers"
 )
@@ -19,14 +19,14 @@ var upCmd = &cobra.Command{
 		signal.Notify(c, os.Interrupt, syscall.SIGTERM)
 
 		go func() {
-			lile.Run()
+			internal.Run()
 		}()
 		go func() {
 			pubsub.Subscribe(&subscribers.{{ .CamelCaseName }}ServiceSubscriber{})
 		}()
 
 		<-c
-		lile.Shutdown()
+		internal.Shutdown()
 		pubsub.Shutdown()
 	},
 }

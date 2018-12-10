@@ -3,7 +3,7 @@ package main
 import (
 	_ "net/http/pprof"
 
-	"github.com/lileio/lile"
+	"github.com/gofunct/gorpc/internal"
 	"github.com/lileio/logr"
 	"github.com/lileio/fromenv"
 	"github.com/lileio/pubsub"
@@ -18,13 +18,13 @@ func main() {
 	logr.SetLevelFromEnv()
 	s := &server.{{ .CamelCaseName }}Server{}
 
-	lile.Name("{{ .Name }}")
-	lile.Server(func(g *grpc.Server) {
+	internal.Name("{{ .Name }}")
+	internal.Server(func(g *grpc.Server) {
 		{{ .SnakeCaseName }}.Register{{ .CamelCaseName }}Server(g, s)
 	})
 
 	pubsub.SetClient(&pubsub.Client{
-		ServiceName: lile.GlobalService().Name,
+		ServiceName: internal.GlobalService().Name,
 		Provider:    fromenv.PubSubProvider(),
 		Middleware:  defaults.Middleware,
 	})

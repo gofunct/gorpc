@@ -68,7 +68,7 @@ func init() {
 	if paths := filepath.SplitList(gopath); len(paths) > 0 {
 		gopath = paths[0]
 	}
-	templatePath = filepath.Clean(filepath.Join(gopath, "/src/github.com/lileio/lile/protoc-gen-lile-server/templates"))
+	templatePath = filepath.Clean(filepath.Join(gopath, "/src/github.com/gofunct/gorpc/gen-server/templates"))
 }
 
 func main() {
